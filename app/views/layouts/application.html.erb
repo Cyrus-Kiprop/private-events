@@ -196,15 +196,15 @@
 
         <div class="right-links">
           <%= link_to 'Create Event',  class: 'btn btn-light post-btn' do %>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+           Create Event <i class="fa fa-plus" aria-hidden="true"></i>
           <% end %>
-       <%#    <% if user_signed_in?  <] %>
-           <%# <%= link_to current_user.fname + ' ' + current_user.lname, user_path(current_user), class: 'btn text-light' %> %>
-            <%# <%= link_to 'Logout', "#", method: :delete, class: 'btn text-light' %> %>
-          <%# <% else %> %>
-            <%# <%= link_to 'Sign up', "#", class: 'btn text-light' %> %>
-            <%# <%= link_to 'Log in',"#", class: 'btn text-light' %> %>
-          <%# <% end <] %>
+          <% if current_user   %>
+            <%= link_to current_user.first_name + ' ' + current_user.last_name, users_path(current_user), class: 'btn text-light' %>
+             <%= link_to 'Logout', sessions_path, method: :delete, class: 'btn text-light' %>
+           <% else %>
+             <%= link_to 'Sign up', new_users_path, class: 'btn text-light' %>
+             <%= link_to 'Log in',new_sessions_path, class: 'btn text-light' %>
+           <% end  %>
         </div>
       </nav>
     </header>
