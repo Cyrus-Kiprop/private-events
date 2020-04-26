@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'bcrypt'
 gem 'bootstrap'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'gravatar_image_tag', '~> 1.2'

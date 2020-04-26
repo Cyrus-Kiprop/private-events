@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>List of all signed in users</h2>
+  <div class="row">
+    <ul class="col-xl-7 col-lg-6 col-md-8 col-sm-10 col-sm-12 mr-auto">
+      <% @users.each do |user| %>
+        <li class="shadow py-2 my-2"><%= user.first_name + " " + user.last_name%></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

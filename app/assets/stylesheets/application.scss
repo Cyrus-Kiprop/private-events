@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import "tether";
+
+
+header {
+  background-color:#F15434;
+  height: 48px;
+  nav {
+    // background-color:#6515DD;
+    height:100%;
+    .svg-logo {
+      height: 46px;
+      fill: white;
+      // border: 1px solid red;
+      width: 70px;
+    }
+
+    .right-links{
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      .post-btn{
+        color:#F15434;
+        font-weight: 500;
+      }
+    }
+  }
+}
