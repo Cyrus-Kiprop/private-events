@@ -2,9 +2,20 @@
   <h2>List of all signed in users</h2>
   <div class="row">
     <ul class="col-xl-7 col-lg-6 col-md-8 col-sm-10 col-sm-12 mr-auto">
-      <% @users.each do |user| %>
-        <li class="shadow py-2 my-2"><%= user.first_name + " " + user.last_name%></li>
+      <% if user_signed_in? %>
+      <% @created_events.each do |event| %>
+        <li class="shadow py-2 my-2">
+            <div class="d-flex flex-column ml-3">
+              <h4 class="text-uppercase"><%= event.title%></h4>
+              <p><%= event.description%></p>
+            </div>
+            <div class=" ml-2 d-flex flex-column ">
+              <strong>Start: <%= event.start%></strong>
+              <strong>End: <%= event.end%></strong>
+            </div>
+          </li>
       <% end %>
+    <% end %>
     </ul>
   </div>
 </div>
