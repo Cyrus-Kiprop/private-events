@@ -198,10 +198,10 @@
           <%= link_to 'Events', events_path,  class: 'btn btn-light post-btn mr-2' %>
           <% if current_user   %>
             <%= link_to 'Create Event', new_event_path,  class: 'btn btn-light post-btn' %>
-            <%= link_to current_user.first_name + ' ' + current_user.last_name, users_path(current_user), class: 'btn text-light' %>
+            <%= link_to current_user.first_name + ' ' + current_user.last_name, user_path(id: current_user.id), class: 'btn text-light' %>
              <%= link_to 'Logout', sessions_path, method: :delete, class: 'btn text-light' %>
            <% else %>
-             <%= link_to 'Sign up', new_users_path, class: 'btn text-light' %>
+             <%= link_to 'Sign up', new_user_path, class: 'btn text-light' %>
              <%= link_to 'Log in',new_sessions_path, class: 'btn text-light' %>
            <% end  %>
         </div>

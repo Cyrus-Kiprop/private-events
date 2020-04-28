@@ -19,8 +19,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @upcoming_events = current_user.attended_events.upcoming
-    @previous_events = current_user.attended_events.previous
+    user = User.find(params[:id])
+    @upcoming_events = user.attended_events.upcoming
+    @previous_events = user.attended_events.previous
+    @user_events = user.organized_events
   end
 
   private

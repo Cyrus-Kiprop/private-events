@@ -7,7 +7,10 @@ class EventsController < ApplicationController
     @previous_events = Event.previous
   end
 
-  def show; end
+  def show
+    @attendees = @event.attendees
+    print @attendees
+  end
 
   def new
     @event = Event.new

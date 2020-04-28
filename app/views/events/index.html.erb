@@ -1,33 +1,42 @@
 <div class="container">
   <div class="row">
-    <ul class="col-xl-7 col-lg-6 col-md-8 col-sm-10 col-sm-12 mr-auto">
-        <h1>Upcoming events</h1>
+    <ul class="col-6">
+      <h4 class ="text-uppercase">Upcoming events</h4>
       <% @upcoming_events.each do |event| %>
-        <li class="shadow py-2 my-2">
-            <div class="d-flex flex-column ml-3">
-              <h4 class="text-uppercase"><%= event.title%></h4>
-              <p><%= event.description%></p>
-            </div>
-            <div class=" ml-2 d-flex flex-column ">
-              <strong>Start: <%= event.start%></strong>
-              <strong>End: <%= event.end%></strong>
-            </div>
-          </li>
-      <% end %>
-
-      <h1>Previous events</h1>
-    <% @previous_events.each do |event| %>
-      <li class="shadow py-2 my-2">
+        <div class="shadow py-2 my-2">
           <div class="d-flex flex-column ml-3">
-            <h4 class="text-uppercase"><%= event.title%></h4>
+            <h6 class="text-uppercase"><%= event.title%></h6>
             <p><%= event.description%></p>
           </div>
           <div class=" ml-2 d-flex flex-column ">
             <strong>Start: <%= event.start%></strong>
             <strong>End: <%= event.end%></strong>
           </div>
-        </li>
-    <% end %>
+          <%if user_signed_in? %>
+            <%if  current_user.attending?(event.id)%>
+            <span>Attending</span>
+          <%else%>
+
+          <%= link_to 'Attend', user_add_event_path(id:event.id), method: :post %>
+        <%end%>
+        <% end  %>
+        </div>
+      <% end %>
+    </ul>
+    <ul class="col-6">
+      <h4 class="text-uppercase">Previous events</h4>
+      <% @previous_events.each do |event| %>
+        <div class="shadow py-2 my-2">
+          <div class="d-flex flex-column ml-3">
+            <h6 class="text-uppercase"><%= event.title%></h6>
+            <p><%= event.description%></p>
+          </div>
+          <div class=" ml-2 d-flex flex-column ">
+            <strong>Start: <%= event.start%></strong>
+            <strong>End: <%= event.end%></strong>
+          </div>
+        </div>
+      <% end %>
     </ul>
   </div>
 </div>
