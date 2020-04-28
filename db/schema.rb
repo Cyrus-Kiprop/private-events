@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 2020_04_27_181100) do
   create_table "tickets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "attendee_id"
-    t.integer "event_attended_id"
-    t.index ["attendee_id"], name: "index_tickets_on_attendee_id"
-    t.index ["event_attended_id"], name: "index_tickets_on_event_attended_id"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_tickets_on_event_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

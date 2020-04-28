@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   before_action :authorize, except: %i[index]
 
   def index
-    @events = Event.all
+    @upcoming_events = Event.upcoming
+    @previous_events = Event.previous
   end
 
   def show; end
@@ -13,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.created_events.build(event_params)
+    @event = current_user.organized_events.build(event_params)
 
     respond_to do |format|
       if @event.save
