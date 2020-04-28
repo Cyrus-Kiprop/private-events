@@ -10,20 +10,18 @@
 </p>
 
 ## Description of the project
-The project involves creation of a clubhouse website(twitter like in
-functionality) in rails. The app implements authentication in rails. The used
-technique in this app is authentication using rails [Devise
-gem](https://github.com/heartcombo/devise]).
-
+The project involves creation of a private events website(EventBrite like in
+functionality) in rails. The app implements authentication, rails scopes and
+association. Many to many relationship is the main key feature.
 **The project contain database models and schemas that model the user and the
 post object.
-visit [The Odin Project 'Members Only'](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication) for the full project specifications.
+visit [The Odin Project 'Members Only'](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) for the full project specifications.
 
 
 ### ⭐️ Built with
 * Ruby,
 * Ruby on Rails,
-* Rails authentication Devise gem [here](https://github.com/heartcombo/devise)
+* Rails authentication (from scratch no gems)
 * SQL lite as the default database
 * vim - or favourite text editor
 
@@ -38,7 +36,7 @@ visit [The Odin Project 'Members Only'](https://www.theodinproject.com/courses/r
 
 2. Navigate into the root of the folder
     ```
-    $ cd ./members-only
+    $ cd ./private-events
     ```
 3. Run bundle install to install the necessary gems:
     ```
@@ -62,10 +60,10 @@ visit [The Odin Project 'Members Only'](https://www.theodinproject.com/courses/r
     ```
 5. First time users should register on the index page
 
-6. After registration, login to view, create, delete and update your  posts.
+6. After registration, login to view, create, and organise events.
 
-7. Non members can only view existing post but dont have create, delete and
-   update priviledges.
+7. Non members can only view existing events but dont have create event
+   priviledges
 
 
 ## Authors
@@ -81,7 +79,7 @@ visit [The Odin Project 'Members Only'](https://www.theodinproject.com/courses/r
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to leave a comment or open an issue. [issues page](https://github.com/Cyrus-Kiprop/members-only/issues).
+Feel free to leave a comment or open an issue. [issues page](https://github.com/Cyrus-Kiprop/private-events).
 
 ## Show your support
 
