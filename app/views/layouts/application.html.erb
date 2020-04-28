@@ -196,8 +196,6 @@
 
         <div class="right-links">
           <%= link_to 'Events', events_path,  class: 'btn btn-light post-btn mr-2' %>
-           <%# Create Event <i class="fa fa-plus" aria-hidden="true"></i> %>
-          <%# <% end %>
           <% if current_user   %>
             <%= link_to 'Create Event', new_event_path,  class: 'btn btn-light post-btn' %>
             <%= link_to current_user.first_name + ' ' + current_user.last_name, users_path(current_user), class: 'btn text-light' %>
