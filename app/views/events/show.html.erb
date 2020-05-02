@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 class="text-center text-bolder">Event's Info Page</h2>
+  <div class="row">
+    <div class="col-7 mx-auto">
+      <div class="shadow py-2 my-2 ">
+        <div class="d-flex flex-column ml-3">
+          <h4 class="text-uppercase"><%= @event.title%></h4>
+          <p><%= @event.description%></p>
+        </div>
+        <div class=" ml-2 d-flex flex-column ">
+          <strong>Start: <%= @event.start%></strong>
+          <strong>End: <%= @event.end%></strong>
+        </div>
+      </div>
+      <h6>Attendees</h6>
+      <% @attendees.each_with_index do |user, idx| %>
+        <p><%= (idx + 1).to_s  + ". " + user.first_name + " " + user.last_name%></p>
+      <% end %>
+      <%=link_to "Back", root_path %>
+    </div>
+  </div>
+</div>

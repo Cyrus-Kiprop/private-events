@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <% if user_signed_in? %>
+      <ul class="col-3">
+        <h4>Previous events</h4>
+        <% @previous_events.each do |event| %>
+          <li class="shadow py-2 my-2">
+            <div class="d-flex flex-column ml-3">
+              <h4 class="text-uppercase"><%= event.title%></h4>
+              <p><%= event.description%></p>
+            </div>
+            <div class=" ml-2 d-flex flex-column ">
+              <strong>Start: <%= event.start%></strong>
+              <strong>End: <%= event.end%></strong>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="col-6 text-center">
+        <h4>My Events</h4>
+        <% @user_events.each do |event| %>
+          <li class="shadow py-2 my-2">
+            <div class="d-flex flex-column ml-0">
+              <h6 class="text-uppercase">
+                <%=link_to event.title, event_path(event)%>
+              </h6>
+            </div>
+            <div class=" ml-2 d-flex  ">
+              <strong>Start: <%= event.start%></strong>
+              <strong>End: <%= event.end%></strong>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <ul class="col-3">
+        <h4>Upcoming events</h4>
+        <% @upcoming_events.each do |event| %>
+          <li class="shadow py-2 my-2">
+            <div class="d-flex flex-column ml-3">
+              <h4 class="text-uppercase"><%= event.title%></h4>
+              <p><%= event.description%></p>
+            </div>
+            <div class=" ml-2 d-flex flex-column ">
+              <strong>Start: <%= event.start%></strong>
+              <strong>End: <%= event.end%></strong>
+            </div>
+            <%if current_user.attending?(event.id)%>
+            <%= link_to "cancel", destroy_event_path(id:event.id), method: :delete %>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+    <% end %>
+    </ul>
+  </div>
+</div>
